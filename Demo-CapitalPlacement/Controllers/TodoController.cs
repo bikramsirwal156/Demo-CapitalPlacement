@@ -3,7 +3,6 @@ using Demo_CapitalPlacement.Application.TodoItems.Commands.DeleteTodo;
 using Demo_CapitalPlacement.Application.TodoItems.Commands.UpdateTodo;
 using Demo_CapitalPlacement.Application.TodoItems.Queries;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Demo_CapitalPlacement.Controllers
