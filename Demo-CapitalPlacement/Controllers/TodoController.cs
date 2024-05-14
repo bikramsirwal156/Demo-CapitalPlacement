@@ -25,15 +25,23 @@ namespace Demo_CapitalPlacement.Controllers
         {
             return Ok(await _mediator.Send(command));
         }
-        [HttpPost("UpdateTodoItem")]
+        [HttpPut("UpdateTodoItem")]
         public async Task<IActionResult> UpdateTodoItem([FromBody] UpdateTodoItemCommand command)
         {
             return Ok(await _mediator.Send(command));
         }
 
-        [HttpPost("DeleteTodoItem")]
-        public async Task<IActionResult> DeleteTodoItem([FromBody] DeleteTodoCommand command)
+        [HttpDelete("DeleteTodoItem")]
+        public async Task<IActionResult> DeleteTodoItem([FromQuery] int Id)
         {
+            if (Id <= 0)
+            {
+                return BadRequest();
+            }
+            var command = new DeleteTodoCommand
+            {
+                Id = Id
+            };
             return Ok(await _mediator.Send(command));
         }
     }
